@@ -1,10 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/user-routes.js"
+import vlogRouter from "./routes/vlog-routes.js";
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 app.use( "/api/user" , router);
+app.use( "/api/vlog" , vlogRouter);
 
 mongoose
   .connect(
