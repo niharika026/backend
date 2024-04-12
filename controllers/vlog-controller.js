@@ -1,4 +1,4 @@
-import vlog from "../model/vlog.js";
+import vlog from "../model/Vlog.js";
 
 export const getAllvlogs = async (req, res, next) => {
 
@@ -10,7 +10,7 @@ export const getAllvlogs = async (req, res, next) => {
          console.log(err);
 
     }
-    if (!vlog) {
+    if (vlog) {
         return res.status(404).json({message: "no vlog found"});
     }
     return res.status(200).json({message: "vlogs"});
@@ -20,7 +20,7 @@ export const getAllvlogs = async (req, res, next) => {
 
 
 export const addvlog = async (req, res, next) => {
-    console.log(req.body)
+   return console.log(req.body)
 
     const {tittle, description, image,user} = req.body;
   
@@ -33,7 +33,7 @@ export const addvlog = async (req, res, next) => {
             try{
         await vlog.save()
             } catch (err) {
-                console.log(err)
+             return   console.log(err)
             }
             return res.status(200).json({ vlog })
         };
